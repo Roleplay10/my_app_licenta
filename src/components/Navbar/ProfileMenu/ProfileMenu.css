@@ -1,0 +1,14 @@
+.dropdownItem{
+    display: flex;
+}
+.dropdownItem img{
+    max-width: 20px;
+    margin-right: 10px;
+    opacity: 0.5;
+    transition: 500ms;
+}
+.dropdownItem a{
+    max-width: 100px;
+    margin-left: 10px;
+    transition: 500ms;
+}

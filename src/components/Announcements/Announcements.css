@@ -1,0 +1,69 @@
+/* src/components/Announcements/Announcements.css */
+
+.announcements-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .announcements-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .announcement-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .announcement-item {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .announcement-title {
+    font-size: 1.5rem;
+    color: #0000EE;
+    cursor: pointer;
+    margin: 0;
+  }
+  
+  .announcement-title:hover {
+    text-decoration: underline;
+  }
+  
+  .announcement-date {
+    margin: 5px 0 10px 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .announcement-content {
+    margin-top: 10px;
+    color: #333;
+    text-align: left;
+    padding: 0 20px;
+  }
+  
+  .announcement-links {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  .announcement-links li {
+    margin-bottom: 5px;
+  }
+  
+  .announcement-links a {
+    color: #0000EE;
+    text-decoration: none;
+  }
+  
+  .announcement-links a:hover {
+    text-decoration: underline;
+  }
+  

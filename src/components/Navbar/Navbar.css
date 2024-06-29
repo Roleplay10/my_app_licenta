@@ -1,0 +1,118 @@
+/* src/components/Navbar/Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #c2c3c4;
+  color: #333;
+}
+
+.navbar-left, .navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  margin-right: 2rem;
+}
+
+.navbar-logo img {
+  height: 40px;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-buttons a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.navbar-buttons a:hover {
+  text-decoration: underline;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.navbar-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+.profile_pic {
+  width: 25px;
+  height: 25px;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 90px;
+  right: 27px;
+  background-color: #c2c3c4;
+  border-radius: 8px;
+  padding: 0px 20px;
+  width: 200px;
+}
+
+.profile-menu::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 7px;
+  height: 25px;
+  width: 25px;
+  background: #c2c3c4;
+  transform: rotate(45deg);
+}
+
+.profile-menu ul li {
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.profile-menu ul li:hover a {
+  color: rgb(212, 33, 9);
+  cursor: pointer;
+}
+
+.profile-menu ul li:hover img {
+  opacity: 1;
+  cursor: pointer;
+}
+
+h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px 0;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.2rem;
+}
+
+.profile-container .profile-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 500ms ease, visibility 500ms ease, transform 500ms ease;
+}
+
+.profile-container .profile-menu.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
