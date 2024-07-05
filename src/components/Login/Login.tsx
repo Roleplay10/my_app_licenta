@@ -37,7 +37,7 @@ const Login: React.FC = () => {
       const res = await axios.get(
         `http://localhost:5270/api/User?email=${values.email}&password=${values.password}`
       );
-      console.log(res.data);
+      //console.log(res.data);
       if(res.status === 200){
         if(singIn({
           auth : {

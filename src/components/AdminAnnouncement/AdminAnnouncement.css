@@ -1,0 +1,105 @@
+/* src/components/Announcements/AddAnnouncement.css */
+
+.add-announcement-container {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-announcement-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.announcement-form .form-group {
+  margin-bottom: 15px;
+}
+
+.announcement-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.announcement-form input,
+.announcement-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.announcement-form input:focus,
+.announcement-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.announcement-form .link-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.announcement-form .link-group input {
+  flex: 1;
+  margin-right: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.announcement-form .link-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.announcement-form .link-group button {
+  padding: 10px 12px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.announcement-form .link-group button:hover {
+  background-color: #c82333;
+}
+
+.announcement-form button[type="button"] {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.announcement-form button[type="button"]:hover {
+  background-color: #218838;
+}
+
+.announcement-form button[type="submit"] {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.announcement-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}

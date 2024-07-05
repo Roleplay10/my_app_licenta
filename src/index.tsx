@@ -18,6 +18,9 @@ import Welcome from './components/Welcome/Welcome';
 import './index.css';
 import DocumentUpload from './components/DocumentUpload/DocumentUpload';
 import ProfileView from './components/ProfileView/ProfileView';
+import AdminAnnouncement from './components/AdminAnnouncement/AdminAnnouncement';
+import AdminAdmission from './components/AdminAdmission/AdminAdmission';
+import AdminProfileApproval from './components/AdminProfileApproval/AdminProfileApproval';
 
 const store = createStore({
   authName: '_auth',
@@ -67,6 +70,18 @@ const router = createBrowserRouter([
       {
         path : 'profile',
         element: <ProfileView/>
+      },
+      {
+        path : 'admin/announcements',
+        element : <AdminAnnouncement/>,
+      },
+      {
+        path : 'admin/admission',
+        element : <AdminAdmission/>,
+      },
+      {
+        path : 'admin/profile-approval',
+        element : <AdminProfileApproval/>
       }
     ],
   },
@@ -77,8 +92,8 @@ const root = createRoot(container!);
 
 root.render(
   <React.StrictMode>
-    <AuthProvider store={store}>
-      <RouterProvider router={router} />
-    </AuthProvider>
+      <AuthProvider store={store}>
+        <RouterProvider router={router} />
+      </AuthProvider>
   </React.StrictMode>
 );

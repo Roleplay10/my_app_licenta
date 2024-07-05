@@ -5,21 +5,13 @@ import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
 const CreateAxiosInstance = () => {
     const isAuthenticated = useIsAuthenticated();
     const axiosInstance = axios.create();
-    const authHeader = useAuthHeader(); // This returns the string directly
-
-
-    // console.log('IsAuthenticated:', isAuthenticated);
-    // console.log('AuthHeader:', authHeader);
+    const authHeader = useAuthHeader(); 
 
     axiosInstance.interceptors.request.use((config) => {
-        if (isAuthenticated) { // Directly use the boolean value
+        if (isAuthenticated) { 
             if (authHeader) {
-                config.headers.Authorization = authHeader // Directly use the authHeader string
-            } else {
-                // console.log('No auth header found');
+                config.headers.Authorization = authHeader 
             }
-        } else {
-            // console.log('User is not authenticated');
         }
         return config;
     },

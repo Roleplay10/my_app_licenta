@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
               <div className={`profile-menu ${visible ? 'visible' : ''}`}>
                 {isAuthenticated ? (
                   <>
-                    <h3>Roleplay10</h3>
+                    <h3>Student</h3>
                     <ul>
                       <ProfileMenu img={settings_pic} text={'Settings'} location="/settings" />
                       <ProfileMenu img={logout_pic} text={'Logout'} location="/" onClick={logOut} />

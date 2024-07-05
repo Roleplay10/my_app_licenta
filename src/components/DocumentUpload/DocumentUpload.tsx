@@ -68,6 +68,7 @@ const DocumentUpload: React.FC = () => {
                 }
             );
             console.log('Documents uploaded successfully:', response.data);
+            await axiosInstance.post(`http://localhost:5270/api/Profile/${userId}/toPending`)
             navigate('/profile-pending');
         } catch (error) {
             console.error('Error uploading documents:', error);

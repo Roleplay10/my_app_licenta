@@ -16,6 +16,7 @@ interface Department {
   endDate: string;
   isOpen: boolean;
 }
+
 interface IUserData {
   userId: string;
 }
@@ -26,12 +27,26 @@ const Admission: React.FC = () => {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showApplyPopup, setShowApplyPopup] = useState(false);
   const [selectedDepartment, setSelectedDepartment] = useState<Department | null>(null);
-  const [refreshData, setRefreshData] = useState(false); // State to trigger useEffect refresh
+  const [refreshData, setRefreshData] = useState(false);
+  const [isVerified, setIsVerified] = useState(true);
   const isAuthenticated = useIsAuthenticated();
   const auth = useAuthUser<IUserData>();
   const axiosInstance = CreateAxiosInstance();
 
   useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        if (isAuthenticated && auth?.userId) {
+          const response = await axiosInstance.get(`http://localhost:5270/api/Profile/${auth.userId}`, {
+            headers: { 'accept': 'text/plain' }
+          });
+          setIsVerified(response.data.isVerified === 'verified');
+        }
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+      }
+    };
+
     const fetchDepartments = async () => {
       try {
         const response = await axios.get('http://localhost:5270/api/Department', {
@@ -42,6 +57,7 @@ const Admission: React.FC = () => {
         console.error('Error fetching departments:', error);
       }
     };
+
     const fetchAppliedDepartments = async () => {
       try {
         if (isAuthenticated && auth?.userId) {
@@ -55,9 +71,10 @@ const Admission: React.FC = () => {
       }
     };
 
+    fetchProfile();
     fetchDepartments();
     fetchAppliedDepartments();
-  }, [refreshData]); // Added refreshData as dependency
+  }, [refreshData]);
 
   const handleApplyClick = (department: Department) => {
     if (!isAuthenticated) {
@@ -91,8 +108,7 @@ const Admission: React.FC = () => {
         }
       );
 
-      setRefreshData(prev => !prev); // Trigger useEffect refresh
-
+      setRefreshData(prev => !prev);
     } catch (error) {
       console.error('Error confirming application:', error);
     }
@@ -107,6 +123,10 @@ const Admission: React.FC = () => {
 
   const openDepartments = departments.filter(dept => dept.isOpen && !isDepartmentApplied(dept));
   const closedDepartments = departments.filter(dept => !dept.isOpen);
+
+  if (!isVerified) {
+    return <p>Account not verified yet.</p>;
+  }
 
   return (
     <div className="admission-container">
